@@ -1,0 +1,20 @@
+{
+  "datacharge": [
+    {
+      "nom": "nom1",
+      "charge": {
+        "equipe1": "100",
+        "equipe2": "0",
+        "equipe3": "0"
+      }
+    },
+    {
+      "nom": "nom2",
+      "charge": {
+        "equipe1": "0",
+        "equipe2": "400",
+        "equipe3": "0"
+      }
+    }
+  ]
+}
