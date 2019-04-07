@@ -1,19 +1,43 @@
-from tkinter import *
-from tkinter.ttk import *
+#http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html
+
 from loads import getcollaborator
 
-window = Tk()
-window.geometry('200x200')
-window.title('Team charge')
+import tkinter as tk
+import tkinter.ttk as ttk
 
-#creating 2 frames Top and Bottom
-top_frame = Frame(window).pack()
-bottom_frame = Frame(window).pack(side = "bottom")
+# --- functions ---
 
+def on_select(event=None):
+    print('----------------------------')
 
-# combo = Combobox(top_frame).pack()
-combo['values'] = getcollaborator()
-combo['values']=(1,2,3,3)
+    if event:
+        print("event.widget:", event.widget.get())
 
+    for i, x in enumerate(all_comboboxes):
+        print("all_comboboxes[%d]: %s" % (i, x.get()))
 
-window.mainloop()
+# --- main ---
+
+root = tk.Tk()
+root.geometry('200x200')
+
+all_comboboxes = []
+
+cb = ttk.Combobox(root, values=("1", "2", "3", "4", "5"))
+cb.set("1")
+cb.pack()
+cb.bind('<<ComboboxSelected>>', on_select)
+
+all_comboboxes.append(cb)
+
+cb = ttk.Combobox(root, values=("A", "B", "C", "D", "E"))
+cb.set("A")
+cb.pack()
+cb.bind('<<ComboboxSelected>>', on_select)
+
+all_comboboxes.append(cb)
+
+b = tk.Button(root, text="Show all selections", command=on_select)
+b.pack()
+
+root.mainloop()
