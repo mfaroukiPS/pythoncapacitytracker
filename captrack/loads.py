@@ -1,4 +1,3 @@
-from tkinter import *
 import json
 
 
@@ -58,10 +57,18 @@ def modifycharge(nom,team,newcharge):
         json.dump(tmp, f, indent=2)
     return tmp
 
+def getcollaborator():
+    #this function return a tuple of collaborator
+    listcollabo = []
+    for item in data['datacharge']:
+        listcollabo.append((item["nom"])) # add element in list
+    return tuple(listcollabo) # convert the list tu tuple
 
+
+getcollaborator()
 # loadchargeAll()
-# print(getcharge('nom2'))
+#print(getcharge('nom2'))
 # print(getteamchargebyteam('equipe2'))
-print(modifycharge("nom2", "equipe2", "100"))
+#print(modifycharge("nom2", "equipe2", "100"))
 
 

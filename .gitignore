@@ -3,3 +3,4 @@ Include/*
 Lib/*
 Scripts/*
 tcl/*
+captrack/__pycache__/
